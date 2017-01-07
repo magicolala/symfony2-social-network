@@ -1,0 +1,15 @@
+tech_corp_front_homepage:
+    path: /
+    defaults: { _controller: TechCorpFrontBundle:Static:homepage }
+
+tech_corp_front_about:
+    path: /about
+    defaults: { _controller: TechCorpFrontBundle:Static:about }
+
+tech_corp_front_timeline:
+    path: /timeline
+    defaults: { _controller: TechCorpFrontBundle:Timeline:timeline }
+
+tech_corp_front_user_timeline:
+    path: /timeline/{userId}
+    defaults: { _controller: TechCorpFrontBundle:Timeline:userTimeline }

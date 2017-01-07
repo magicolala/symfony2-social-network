@@ -1,0 +1,26 @@
+{% extends 'TechCorpFrontBundle::layout.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <h1>Timeline de {{ user.username }}</h1>
+
+    {% if statuses != null %}
+    <div class="container">
+        {% for status in statuses %}
+            {% include 'TechCorpFrontBundle:_components:status.html.twig' with {'status':status} %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>
+        Cet utilisateur n'a rien publié pour le moment.
+    </p>
+    {% endif %}
+
+    <h2>Liste des personnes ajoutées</h2>
+    {% for currFriend in user.friends %}
+        <p><a href="{{ path('tech_corp_front_user_timeline', { 'userId': currFriend.id }) }}">{{ currFriend.username }}</a></p>
+    {% else %}
+        <p>Cet utilisateur n'a pas ajouté d'ami.</p>
+    {% endfor %}
+</div>
+{% endblock content %}

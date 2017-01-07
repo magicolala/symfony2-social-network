@@ -1,0 +1,17 @@
+{% extends 'TechCorpFrontBundle::layout.html.twig' %}
+
+{% block content %}
+    <!--Jumbotron-->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Hello World !</h1>
+            <p class="lead">Ceci est la page d'accueil de notre application, que nous allons compléter au fur et à mesure des chapitres du livre</p>
+            <hr class="my-2">
+
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" role="button" href="{{ path('tech_corp_front_about') }}">En savoir plus</a>
+            </p>
+        </div>
+    </div>
+    <!--/.Jumbotron-->
+{% endblock %}

@@ -1,0 +1,4 @@
+services:
+#    tech_corp_front.example:
+#        class: TechCorp\FrontBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
