@@ -16,11 +16,11 @@
     </p>
     {% endif %}
 
-    <h2>Liste des personnes ajoutées</h2>
+    <h2>Liste des personnes ajoutées en amis</h2>
     {% for currFriend in user.friends %}
         <p><a href="{{ path('tech_corp_front_user_timeline', { 'userId': currFriend.id }) }}">{{ currFriend.username }}</a></p>
     {% else %}
-        <p>Cet utilisateur n'a pas ajouté d'ami.</p>
+        <p>Cet utilisateur n'a pas ajouté d'ami pour le moment.</p>
     {% endfor %}
 </div>
 {% endblock content %}

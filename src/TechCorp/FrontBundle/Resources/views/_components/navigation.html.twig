@@ -1,5 +1,5 @@
 <!--Navbar-->
-<nav class="navbar navbar-dark bg-primary">
+<nav class="navbar navbar-fixed-top scrolling-navbar white">
 
     <!-- Collapse button-->
     <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx2">
@@ -11,7 +11,7 @@
         <!--Collapse content-->
         <div class="collapse navbar-toggleable-xs" id="collapseEx2">
             <!--Navbar Brand-->
-            <a class="navbar-brand" href="{{ path('tech_corp_front_homepage') }}">Nom du projet</a>
+            <a class="navbar-brand" href="{{ path('tech_corp_front_homepage') }}">Social Network</a>
             <!--Links-->
             <ul class="nav navbar-nav">
                 <li class="nav-item">
@@ -20,9 +20,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('tech_corp_front_about') }}">A propos</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('tech_corp_front_timeline') }}">Timeline</a>
+                </li>
             </ul>
         </div>
         <!--/.Collapse content-->
     </div>
 </nav>
 <!--/.Navbar-->
+

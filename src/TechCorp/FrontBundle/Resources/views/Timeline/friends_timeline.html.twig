@@ -1,0 +1,32 @@
+{% extends 'TechCorpFrontBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Timeline des amis de {{ user.username }}</h1>
+        {% if statuses != null %}
+            <div class="statuses-friends">
+                {% for status in statuses %}
+                    <div class="jumbotron">
+                        <div class="status-single well">
+                            <a href="{{ path('tech_corp_front_user_timeline', { 'userId': status.user.id }) }}"><strong>{{ status.user.username }}</strong></a> à écrit
+                            <h5><SUP><i class="fa fa-quote-left"></i></SUP> {{ status.content }}<SUP><i class="fa fa-quote-right"></i></SUP></h5> le {{ status.createdAt|date('d-m-Y H:i:s') }}
+                        </div>
+                        <div class="status-comments">
+                            {% for comment in status.comments %}
+                                <div>
+                                    <a href="{{ path('tech_corp_front_user_timeline', { 'userId': status.user.id } ) }}">{{ comment.user.username }}</a> : {{ comment.content }}
+                                    <p>le {{ comment.createdAt|date('d-m-Y H:i:s') }}</p>
+                                </div>
+                                <hr />
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>
+                Les amis de cet utilisateur n'ont rien publié pour le moment.
+            </p>
+        {% endif %}
+    </div>
+{% endblock content %}

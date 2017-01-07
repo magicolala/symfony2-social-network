@@ -5,3 +5,14 @@
         <p>le {{ status.createdAt|date('d-m-Y H:i:s') }}</p>
     </div>
 </div>
+<div class="comments-container">
+    {% for comment in status.comments %}
+    <div class="row">
+        <div class="col-md-12">
+            <p>Commentaire de <a href="{{ path('tech_corp_front_user_timeline', { 'userId': comment.user.id }) }}">{{ comment.user.username }}</a></p>
+            <p>{{ comment.content }}</p>
+            <p>le {{ comment.createdAt|date('d-m-Y H:i:s') }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>

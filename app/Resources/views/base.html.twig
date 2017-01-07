@@ -6,8 +6,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}Welcome!{% endblock %}</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -35,6 +37,8 @@
 
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ asset('assets/js/mdb.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/scrolling-nav.js') }}"></script>
+
     {% block javascripts_body %}{% endblock %}
 </body>
 </html>

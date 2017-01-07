@@ -13,3 +13,7 @@ tech_corp_front_timeline:
 tech_corp_front_user_timeline:
     path: /timeline/{userId}
     defaults: { _controller: TechCorpFrontBundle:Timeline:userTimeline }
+
+tech_corp_front_friends_timeline:
+    path: /friends_timeline/{userId}
+    defaults: { _controller: TechCorpFrontBundle:Timeline:friendsTimeline }

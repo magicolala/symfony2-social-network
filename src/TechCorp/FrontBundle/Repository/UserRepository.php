@@ -10,4 +10,5 @@ namespace TechCorp\FrontBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
