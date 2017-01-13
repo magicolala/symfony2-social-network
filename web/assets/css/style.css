@@ -17,6 +17,14 @@ body {
     margin-bottom: 15px;
 }
 
+#fos_user_registration_form input {
+    background-color: white;
+}
+
+body > div.container > form > div:nth-child(2) > input[type="submit"] {
+    margin-top: 20px;
+}
+
 @media(min-width:767px) {
     .navbar {
         padding: 20px 0;

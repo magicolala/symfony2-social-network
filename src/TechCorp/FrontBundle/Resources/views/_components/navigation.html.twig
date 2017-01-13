@@ -20,8 +20,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('tech_corp_front_about') }}">A propos</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('tech_corp_front_timeline') }}">Timeline</a>
+                <li class="nav-item btn-group">
+                    <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Compte</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                            <a href="{{ path('fos_user_registration_register') }}" class="dropdown-item">S'inscrire</a>
+                            <a href="{{ path('fos_user_security_login') }}" class="dropdown-item">Se connecter</a>
+                            <a href="{{ path('fos_user_resetting_request') }}" class="dropdown-item">Mot de passe oublié ?</a>
+                        {% else %}
+                            <a href="{{ path('tech_corp_front_user_timeline', { 'userId': app.user.id }) }}" class="dropdown-item">Timeline</a>
+                            <a href="{{ path('fos_user_security_logout') }}" class="dropdown-item">Se déconnecter</a>
+                        {% endif %}
+                    </div>
                 </li>
             </ul>
         </div>

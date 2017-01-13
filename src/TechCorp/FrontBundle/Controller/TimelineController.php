@@ -4,6 +4,7 @@ namespace TechCorp\FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use TechCorp\FrontBundle\Entity\Status;
+use TechCorp\FrontBundle\Form\StatusType;
 
 class TimelineController extends Controller
 {
@@ -21,21 +22,31 @@ class TimelineController extends Controller
     public function userTimelineAction($userId)
     {
         $em = $this->getDoctrine()->getManager();
+
+        // Récupérer l'utilisateur courant
         $user = $em->getRepository('TechCorpFrontBundle:User')->findOneById($userId);
 
         if (!$user) {
             $this->createNotFoundException("L'utilisateur n'a pas été trouvé");
         }
 
-        $statuses = $em->getRepository('TechCorpFrontBundle:Status')->findBy(
-            array(
-                'user' => $user,
-                'deleted' => false
-            )
-        );
+        // Créer le formulaire
+        $authenticatedUser = $this->get('security.context_storage')->getToken()->getUser();
+        $status = new Status();
+        $status->setDeleted(false);
+        $status->setUser($authenticatedUser);
+
+        $form = $this->createForm(new StatusType(), $status);
+
+        $request = $this->getRequest();
+        // Récupérer les statuts
+        $statuses = $em->getRepository('TechCorpFrontBundle:Status')->getUserTimeline($user)->getResult();
+
+        // Rendre la page
         return $this->render('TechCorpFrontBundle:Timeline:user_timeline.html.twig', array(
             'user' => $user,
-            'statuses' => $statuses
+            'statuses' => $statuses,
+            'form' => $form->createView()
         ));
     }
 

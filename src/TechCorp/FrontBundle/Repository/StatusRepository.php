@@ -33,7 +33,7 @@ class StatusRepository extends EntityRepository
             LEFT JOIN s.comments c 
             LEFT JOIN c.user u 
             WHERE
-              s.user = :USER
+              s.user = :user
               AND s.deleted = false
             ORDER BY
               s.createdAt DESC
